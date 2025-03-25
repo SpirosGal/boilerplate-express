@@ -8,6 +8,6 @@ console.log("Hello World");
 app.get('/', (req, res) => {
   res.sendFile('/workspace/boilerplate-express/views/index.html');
 });
-
+app.use(path, express.static(/workspace/boilerplate-express/views/index.html))
 // Export the app for use in the server
 module.exports = app;
