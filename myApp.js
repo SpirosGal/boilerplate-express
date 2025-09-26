@@ -2,14 +2,16 @@ let express = require('express');
 let path = require('path');
 let app = express();
 
+// 1. Log to console
 console.log("Hello World");
 
-// Step 4: Serve static assets only from /public
+// 2. Serve static assets from /public, mapped at /public URL path
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Step 3: Serve index.html at /
+// 3. Serve the index.html at root
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
+// Export app (the test runner uses this)
 module.exports = app;
