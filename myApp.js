@@ -1,17 +1,16 @@
 let express = require('express');
-let path = require('path');  // Import path module
+let path = require('path');  
 let app = express();
 
-// Log to the console when the app starts
 console.log("Hello World");
 
-// Serve static files from the /public directory
+// Serve static files from /public
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Define a route for the root path '/'
+// Root route should serve index.html inside /public
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public'));  // Serve the index.html file
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Export the app for use in the server
+// Export app
 module.exports = app;
