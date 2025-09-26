@@ -10,7 +10,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Define a route for the root path '/'
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/index.html'));  // Serve the index.html file
+  res.sendFile(path.join(__dirname, '/public'));  // Serve the index.html file
 });
 
 // Export the app for use in the server
