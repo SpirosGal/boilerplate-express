@@ -4,12 +4,12 @@ let app = express();
 
 console.log("Hello World");
 
-// Serve static files from /public ONLY at /public
+// Step 4: Serve static assets only from /public
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Root should send index.html (must be inside /public)
+// Step 3: Serve index.html at /
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
 module.exports = app;
