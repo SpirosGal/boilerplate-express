@@ -1,17 +1,19 @@
 let express = require('express');
-let path = require('path');
+let path = require('path');  // Import path module
 let app = express();
 
-// 1. Log to console
+// Log to the console when the app starts
 console.log("Hello World");
 
-// 2. Serve static assets from /public, mapped at /public URL path
+// Serve static files from the /public directory
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// 3. Serve the index.html at root
+// Define a route for the root path '/'
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+  res.sendFile('/workspace/boilerplate-express/views/index.html');
+  res.sendFile(path.join(__dirname, '/views/index.html'));  // Serve the index.html file
 });
+app.use(path, express.static(/workspace/boilerplate-express/views/index.html))
 
-// Export app (the test runner uses this)
+// Export the app for use in the server
 module.exports = app;
